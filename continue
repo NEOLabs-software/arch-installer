@@ -28,4 +28,4 @@ echo "now enter password for your account"
 passwd $username
 usermod -aG wheel,audio,video,storage $username
 echo "%wheel ALL=(ALL:ALL) all" >> /etc/sudoers
-echo "done. now exit from chroot"
+echo "done. now type exit to exit from chroot"
