@@ -19,7 +19,6 @@ then
    exit
 else
 mount $root /mnt
-mkdir /etc/pacman.d
 pacstrap /mnt base linux linux-firmware vim nano
 genfstab -U /mnt >> /mnt/etc/fstab
 touch /mnt/efi.txt
