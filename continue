@@ -28,4 +28,6 @@ echo "now enter password for your account"
 passwd $username
 usermod -aG wheel,audio,video,storage $username
 echo "%wheel ALL=(ALL:ALL) all" >> /etc/sudoers
-echo "done. now exit from chroot"
+pacman -Sy git
+echo "done. now type exit to exit from chroot"
+echo "if you want to install any desktop managers, you can run './getmanagers' and it will download the managers'
