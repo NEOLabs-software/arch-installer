@@ -1,0 +1,5 @@
+#!/bin/bash
+git clone https://github.com/thayeeboi890/arch-display-managers
+cd arch-display-managers
+dir
+echo "now run ./'desktopmanagername' to install that desktop manager"
