@@ -20,14 +20,14 @@ then
 else
 mount $root /mnt
 mkdir /etc/pacman.d
-cp pacman.d/mirrorlist /etc/pacman.d
-./commands/pacstrap /mnt base linux linux-firmware vim nano
+pacstrap /mnt base linux linux-firmware vim nano
 genfstab -U /mnt >> /mnt/etc/fstab
 touch /mnt/efi.txt
 echo $efi > /mnt/efi.txt
 echo "ready to chroot into the directory"
 echo "when you are in type ./continue"
-mv continue /mnt
-./commands/arch-chroot /mnt
+cp continue /mnt
+arch-chroot /mnt
+rm /mnt/continue
 echo "INSTALLATION IS COMPLETE!"
 fi
