@@ -1,0 +1,33 @@
+#!/bin/bash
+echo "Welcome to the ARCH Linux auto install script"
+echo "choose your root filesystem disk"
+ls -l /dev/sd* > disk.txt
+ls -l /dev/nvme* > disks.txt
+cat disks.txt
+cat disk.txt
+read root
+echo "choose your efi partition"
+cat disk.txt
+cat disks.txt
+read efi
+echo "are you ready for the install"
+echo "[Y|n]"
+read yn1 
+if [ yn1 == n ]
+then
+   echo "Aborting"
+   exit
+else
+mount $root /mnt
+mkdir /etc/pacman.d
+cp pacman.d/mirrorlist /etc/pacman.d
+./commands/pacstrap /mnt base linux linux-firmware vim nano
+genfstab -U /mnt >> /mnt/etc/fstab
+touch /mnt/efi.txt
+echo $efi > /mnt/efi.txt
+echo "ready to chroot into the directory"
+echo "when you are in type ./continue"
+mv continue /mnt
+./commands/arch-chroot /mnt
+echo "INSTALLATION IS COMPLETE!"
+fi

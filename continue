@@ -1,0 +1,31 @@
+#!/bin/bash
+echo "Now we will continue the installation"
+language=en_GB.UTF-8
+echo $language > /etc/locale.gen
+locale-gen
+echo LANG=$language > /etc/locale.conf
+export LANG=$language
+echo "What do you want to name your system?"
+read hostname
+echo $hostname > /etc/hostname
+touch /etc/hosts
+echo 127.0.0.1	localhost >> /etc/hosts
+echo ::1		localhost >> /etc/hosts
+echo 127.0.1.1	$hostname >> /etc/hosts
+echo "now create root password"
+passwd
+pacman -S --noconfirm grub efibootmgr
+mkdir /boot/efi
+efi=$(cat efi.txt)
+mount $efi /boot/efi
+grub-install --target=x86_64-efi --bootloader-id=ARCH --efi-directory=/boot/efi
+grub-mkconfig -o /boot/grub/grub.cfg
+pacman -S --noconfirm sudo
+echo what will your username be?
+read username
+useradd -m $username
+echo "now enter password for your account"
+passwd $username
+usermod -aG wheel,audio,video,storage $username
+echo "%wheel ALL=(ALL:ALL) all" >> /etc/sudoers
+echo "done. now exit from chroot"
