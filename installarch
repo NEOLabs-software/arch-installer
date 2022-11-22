@@ -19,7 +19,6 @@ then
    exit
 else
 mount $root /mnt
-mkdir /etc/pacman.d
 pacstrap /mnt base linux linux-firmware vim nano
 genfstab -U /mnt >> /mnt/etc/fstab
 touch /mnt/efi.txt
@@ -27,6 +26,9 @@ echo $efi > /mnt/efi.txt
 echo "ready to chroot into the directory"
 echo "when you are in type ./continue"
 cp continue /mnt
+cp getmanagers /mnt
+chmod +x /mnt/continue
+chmod +x /mnt/getmanagers
 arch-chroot /mnt
 rm /mnt/continue
 echo "INSTALLATION IS COMPLETE!"
