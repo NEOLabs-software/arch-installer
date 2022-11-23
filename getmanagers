@@ -2,4 +2,13 @@
 git clone https://github.com/thayeeboi890/arch-display-managers
 cd arch-display-managers
 dir
+chmod +x gnome
+chmod +x kde
+chmod +x budgie
+chmod +x cinnamon
+chmod +x lxde
+chmod +x lxqt
+chmod +x mate
+chmod +x pantheon
+chmod +x xfce
 echo "now run ./'desktopmanagername' to install that desktop manager"
