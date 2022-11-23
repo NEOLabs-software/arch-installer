@@ -32,6 +32,5 @@ echo "%wheel ALL=(ALL:ALL) all" >> /etc/sudoers
 pacman -Sy --noconfirm git
 echo done. now type exit to exit from chroot
 echo if you want to install any desktop managers, you can run ./getmanagers and it will download the managers
-=======
 echo "done. now type exit to exit from chroot"
 echo "if you want to install any desktop managers, you can run ./getmanagers and it will download the managers
