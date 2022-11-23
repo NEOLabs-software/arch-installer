@@ -31,5 +31,7 @@ chmod +x /mnt/continue
 chmod +x /mnt/getmanagers
 arch-chroot /mnt
 rm /mnt/continue
+rm /mnt/getmanagers
+rm -r /mnt/arch-display-managers
 echo "INSTALLATION IS COMPLETE!"
 fi

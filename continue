@@ -23,7 +23,7 @@ grub-install --target=x86_64-efi --bootloader-id=ARCH --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S --noconfirm sudo
 echo what will your username be?
-echo NO spaces!
+echo NO spaces!!
 read username
 useradd -m $username
 echo "now enter password for your account"
