@@ -11,4 +11,5 @@ chmod +x lxqt
 chmod +x mate
 chmod +x pantheon
 chmod +x xfce
+echo now cd into the arch-display-managers directory
 echo "now run ./'desktopmanagername' to install that desktop manager"
