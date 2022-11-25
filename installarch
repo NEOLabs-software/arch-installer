@@ -19,7 +19,7 @@ then
    exit
 else
 mount $root /mnt
-pacstrap /mnt base linux linux-firmware vim nano
+pacstrap /mnt base linux linux-firmware nano
 genfstab -U /mnt >> /mnt/etc/fstab
 touch /mnt/efi.txt
 echo $efi > /mnt/efi.txt
