@@ -29,7 +29,7 @@ useradd -m $username
 echo "now enter password for your account"
 passwd $username
 usermod -aG wheel,audio,video,storage $username
-echo "%wheel ALL=(ALL:ALL) all" >> /etc/sudoers
+echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 pacman -Sy --noconfirm git
 echo done. now type exit to exit from chroot
 echo if you want to install any desktop managers, you can run ./getmanagers and it will download the managers
